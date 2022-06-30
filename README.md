@@ -1,2 +1,2 @@
 # prettyCalculator-
-A fancy, relevant, always necessary  ~calculator~ in vanilla JS 
+A fancy, relevant, always necessary  *calculator* in vanilla JS 
