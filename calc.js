@@ -1,110 +1,56 @@
-//calc state
-
-let screenOutput= document.getElementById('screenOutput');
-let firstOperand= null;
-let secondOperand= null;
-let firstOperator=null;
-let seacondOperator=null;
-
-
-// basic operations
-
-
-function add(a, b) {
-    const answer = (+a + +b) ;
-        return answer
-};
-
-function subtract(a,b){
-    const answer=(+a - +b)
-        return answer
-};
-
-function multiply(a,b){
-    const answer=(+a * +b)
-        return answer
-};
-
-function divide(a,b){
-    const answer(+a / +b)
-        return answer
-};
-
-
-// calculator function 
-function clearAll(){
-    screenOutput.textContent = 0;
-    firstOperand=null;
-    secondOperand=null;
-    firstOperator=null;
-};
-
-function getAnswer(a, b, operator){
-    let answer=" ";
-    if (operator == '+'){
-        answer=add(a,b);
-    }else if(operator == '-'){
-        answer=subtract(a,b);
-    }else if(operator=='*'){
-        answer=multiply(a,b);
-    }else if(operator == '/'){
-        answer=divide(a,b)
+class Calculator{
+    consturctor(PreviousOperandTextElement, CurrentOperandTextElement){
+        this.PreviousOperandTextElement = PreviousOperandTextElement
+        this.CurrentOperandTextElement = CurrentOperandTextElement
+        this.clear()
     }
-    console.log(answer);
-    screenOutput.textContent=answer;
-    return parseFloat(answer);
-};
 
-// button event listeners
+    clear(){
+        this.currentOperand = ' '
+        this.previousOperand = ' '
+        this.operation = undefined
+    }
 
-let resetFlag=false;
-const buttons= document.querySelectorAll('button');
-const numButtons= document.getElementsByClassName('num-button');
+    delete(){
 
-function clickButton(){
-    for(let i = 0; i < buttons.length; i++){
-        buttons[i].addEventListener('click', function(){
-            if(buttons[i].classList.contains('num-button')){
-                console.log(buttons[i].value);
-                if (buttons[i].value=='.' && screenOutput.textContent.includes('.')){
+    }
 
-                }else if (screenOutput.textContent == '0' || screenOutput.textContent == 0) {
-                    resetFlag = false;
-                    screenOutput.textContent=buttons[i].value;
-                }else if (secondOperand || resetFlag){
-                    resetFlag=false;
-                    screenOutput.textContent=buttons[i].value;
-                }else {
-                    screenOutput.textContent += buttons[i].value;
-                }
-            }else if (buttons[i].classList.contains('operator-button')){
-                if(firstOperator==null){
-                    firstOperator = buttons[i].value;
-                    firstOperand = parseFloat(screenOutput.textContent);
-                    screenOutput.textContent = `${firstOperand}  ${firstOperator}`;
-                }} else if (firstOperator) { 
-                    secondOperand = parseFloat(inputDisplay.textContent);
-                    let answer = getAnswer(firstOperand, secondOperand, firstOperator);
-                    equationDisplay.textContent = `${answer} ${buttons[i].value}`;
-                    firstOperand = answer; 
-                    inputDisplay.textContent = 0;
-                    secondOperand = null;
-                    firstOperator = buttons[i].value;
-                  }
-                } else if (buttons[i].classList.contains('equal-button')) {
-                  if (firstOperand && firstOperator) {
-                    secondOperand = parseFloat(inputDisplay.textContent);
-                    let answer = getAnswer(firstOperand, secondOperand, firstOperator);
-                    equationDisplay.textContent += ' ' + secondOperand + ' =';
-                    firstOperand = answer;
-                    resetFlag = true; 
-                    secondOperand = null;
-                    firstOperator = null;
-                  }
-                  
-                } else if (buttons[i].classList.contains('clear-button')) {
-                  clearAll();
-              })
-            }
-          }
-          clickButton()
+    appendNumber(){
+        this.currentOperand = number
+    }
+
+    chooseOperation(){
+
+    }
+
+    chooseOperation(){
+
+    }
+
+    compute(){
+
+    }
+
+    updateDisplay(){
+        this.CurrentOperandTextElement.innerText = this.currentOperand
+    }
+}
+
+
+const numberButtons = document.querySelectorAll('[data-number]')
+const operationButtons = document.querySelectorAll('[data-operation')
+const equalsButton = document. querySelector('[data-equals]')
+const deleteButton = document. querySelector('[data-delete]')
+const clearButton = document. querySelector('[data-all-clear]')
+const previousButton = document. querySelector('[data-previous-operand]')
+const currentButton = document. querySelector('[data-current-operand]')
+
+
+const Calc = new Calculator(PreviousOperandTextElement, CurrentOperandTextElement)
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () =>{
+        Calculator.appendNumber(button.innerText)
+        Calculator.updateDisplay()
+    })
+})
