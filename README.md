@@ -1,4 +1,4 @@
 # prettyCalculator-
 A fancy, relevant, always necessary  *calculator* in vanilla JS 
 
-<img width="1236" alt="Screen Shot 2022-07-05 at 11 54 47 PM" src="https://user-images.githubusercontent.com/98899869/177473018-290cab90-3d89-47e1-87b9-dbcebf2e9bb8.png">
+<img width="1065" alt="Screen Shot 2022-07-06 at 5 56 59 PM" src="https://user-images.githubusercontent.com/98899869/177656823-388f0583-e971-4f19-b95e-7b4993cb0868.png">
